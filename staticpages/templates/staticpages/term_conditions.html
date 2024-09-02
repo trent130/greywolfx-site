@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<title>{% block title %}Greywolfx | Terms And Conditions{% endblock title %}</title>
+<body>
+
+
+{% block content %}
+	
+<!-- inner-banner -->
+<section class="inner-banner" id="home">
+	<div class="inner-layer">
+		<div class="container">
+		</div>
+	</div>
+</section>
+<!-- //inner-banner -->
+
+{% include 'breadcrumb.html' %}
+ 
+ <section class="contact py-5">
+	<div class="container py-sm-5">
+ 
+ <h2 class="heading mb-sm-5 mb-4"> our Terms and <strong> Conditions </strong></h2>
+
+ <p></p>
+     </div>
+    </section>
+
+{% include 'footer.html' %}
+
+<!-- move top -->
+<div class="move-top text-right">
+	<a href="#home" class="move-top"> 
+		<span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
+	</a>
+</div>
+<!-- move top -->
+
+{% endblock content %}
+	
+</body>
+</html>

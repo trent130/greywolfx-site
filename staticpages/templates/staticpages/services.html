@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<title>{% block title %} Greywolfx | Services {% endblock title %}</title>
+<body>
+
+
+
+{% block content %}
+<style>
+	.products .grid{
+		background-color: transparent ;
+		height: 100%;
+	}
+	
+	.other_services .grid {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    height: 100%; /* Allow the grid to take full height of the column */
+}
+
+.other_services img {
+    width: 100%; /* Make the image take the full width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+}
+
+.other_services .info {
+    flex-grow: 1; /* Allow the info section to grow and fill the space */
+}
+</style>
+	<!-- inner-banner -->
+<section class="inner-banner" id="home">
+	<div class="inner-layer">
+		<div class="container">
+		</div>
+	</div>
+</section>
+<!-- //inner-banner -->
+
+<!-- breadcrumb -->
+<div class="breadcrumb-w3pvt bg-light">
+	<div class="container">
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="{% url 'staticpages:index'%}">Home</a>
+			</li>
+			<li class="breadcrumb-item" aria-current="page">Services</li>
+		</ol>
+	</nav>
+	</div>
+</div>
+<!-- //breadcrumb -->
+		
+
+<!-- services -->
+<section class="services py-5">
+	<div class="container py-lg-5 py-sm-3">
+		<h2 class="heading mb-5">Services <strong>We Provide</strong></h2>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="row">
+					<div class="col-9 mt-lg-5 grid">
+						<h3>AI-Powered Testing</h3>
+						<p class="mt-2">Revolutionize your software development with our advanced AI-based testing solutions.</p>
+					</div>
+					<div class="col-3 mt-lg-5 icon text-center grid1">
+						<span class="fa fa-cogs"></span>
+					</div>
+					
+					<div class="col-9 mt-sm-5 mt-4 grid">
+						<h3>Smart Trading</h3>
+						<p class="mt-2">Leverage AI to analyze market trends, optimize strategies, and provide real-time insights.</p>
+					</div>
+					<div class="col-3 mt-sm-5 mt-4 icon text-center grid4">
+						<span class="fa fa-chart-line"></span>
+					</div>
+					
+					<div class="col-9 mt-sm-5 mt-4 grid">
+						<h3>Self-Learning AI</h3>
+						<p class="mt-2">Our AI system continuously learns and improves, adapting to new challenges and opportunities.</p>
+					</div>
+					<div class="col-3 mt-sm-5 mt-4 icon text-center grid5">
+						<span class="fa fa-brain"></span>
+					</div>
+					
+				</div>
+			</div>
+			<div class="col-lg-4 text-lg-center mt-lg-0 mt-4">
+				<img src="{% static 'images/serv.jpg' %}" alt="Services" class="img-fluid">
+			</div>
+			<div class="col-lg-4 text-right">
+				<div class="row">
+					<div class="col-3 mt-sm-5 mt-4 icon text-center grid6">
+						<span class="fa fa-cloud"></span>
+					</div>
+					<div class="col-9 mt-sm-5 mt-4 grid">
+						<h3>Cloud AI Solutions</h3>
+						<p class="mt-2">Scalable and flexible AI services delivered through the cloud.</p>
+					</div>
+					
+					<div class="col-3 mt-sm-5 mt-4 icon text-center grid7">
+						<span class="fa fa-shield-alt"></span>
+					</div>
+					<div class="col-9 mt-sm-5 mt-4 grid">
+						<h3>Data Security</h3>
+						<p class="mt-2">State-of-the-art encryption and security measures to protect your sensitive data.</p>
+					</div>
+					
+					<div class="col-3 mt-sm-5 mt-4 icon text-center grid3">
+						<span class="fa fa-headset"></span>
+					</div>
+					<div class="col-9 mt-sm-5 mt-4 grid">
+						<h3>24/7 AI Support</h3>
+						<p class="mt-2">Round-the-clock assistance from our AI experts to ensure smooth operation of your systems.</p>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //services -->
+
+<!-- other services -->
+<section class="other_services pt-5">
+	<div class="container py-lg-5 py-sm-3">
+		<h3 class="heading mb-sm-5 mb-4">A Wide Range <strong>of Our Services</strong></h3>
+		<div class="row">
+			<div class="col-lg-4 col-md-6 mb-5 d-flex">
+				<div class="bg-white grid flex-fill">
+					<img src="{% static 'images/s1.jpg' %}" alt="Personal Business" class="img-fluid" />
+					<div class="info p-4">
+						<h4 class="">AI Consulting</h4>
+						<p class="my-3">Expert advice to help you integrate AI into your business processes and strategies.</p>
+						<a href="#">Read More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-5 d-flex">
+				<div class="bg-white grid flex-fill">
+					<img src="{% static 'images/s2.jpg' %}" alt="Trade Marketing" class="img-fluid" />
+					<div class="info p-4">
+						<h4 class="">AI-Driven Marketing</h4>
+						<p class="my-3">Utilize AI to enhance your marketing efforts and reach your target audience effectively.</p>
+						<a href="#">Read More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-5 d-flex">
+				<div class="bg-white grid flex-fill">
+					<img src="{% static 'images/s3.jpg' %}" alt="IT Management" class="img-fluid" />
+					<div class="info p-4">
+						<h4 class="">AI-Powered IT Management</h4>
+						<p class="my-3">Optimize your IT infrastructure with AI solutions that enhance performance and security.</p>
+						<a href="#">Read More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //other services -->
+			
+<!-- products -->
+<section class="products py-5">
+	<div class="container py-lg-5 py-3">
+		<h3 class="heading mb-md-5 mb-4">Our <strong>AI Products</strong></h3>
+		<div class="row products_grids text-center">
+			<div class="col-md-3 col-6 grid4 mb-md-0 mb-4">
+				<div class="prodct1 grid flex-fill ">
+					<a href="#" class="bg-white">
+						<span class="fa fa-cogs"></span>
+						<h3 class="mt-2">AI Test Environment</h3>
+						<span class="fas fa-long-arrow-alt-right"></span>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-3 col-6 grid5 mb-md-0 mb-4">
+				<div class="prodct1 grid flex-fill">
+					<a href="#" class="bg-white">
+						<span class="fa fa-chart-line"></span>
+						<h3 class="mt-2">Smart Trading Companion</h3>
+						<span class="fas fa-long-arrow-alt-right"></span>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-3 col-6 grid6">
+				<div class="prodct1 grid flex-fill">
+					<a href="#" class="bg-white">
+						<span class="fa fa-brain"></span>
+						<h3 class="mt-2">Self-Learning AI System</h3>
+						<span class="fas fa-long-arrow-alt-right"></span>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-3 col-6 grid7">
+				<div class="prodct1 grid flex-fill">
+					<a href="#" class="bg-white">
+						<span class="fa fa-cloud"></span>
+						<h3 class="mt-2">Cloud AI Solutions</h3>
+						<span class="fas fa-long-arrow-alt-right"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+		
+<!-- //products -->
+
+{% include 'footer.html' %}
+
+<!-- move top -->
+<div class="move-top text-right">
+	<a href="#home" class="move-top"> 
+		<span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
+	</a>
+</div>
+<!-- move top -->
+{% endblock content %}
+	
+
+</body>
+</html>
+</html>

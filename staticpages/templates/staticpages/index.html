@@ -1,0 +1,364 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<title>{% block title %}Greywolfx | Home{% endblock title %}</title>
+	
+<body>
+
+
+{% block content %}
+<style>
+	.products {
+    background-color: #f8f9fa;
+}
+
+.prodct1 {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.prodct1:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.prodct1 span.fa {
+    font-size: 3em;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.prodct1 h3 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.prodct1 p {
+    color: #666;
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+.prodct1 .fas.fa-long-arrow-alt-right {
+    color: #007bff;
+    font-size: 1.2em;
+    margin-top: 15px;
+}
+
+.prodct1 .arrow-container{
+    align-self: flex-end;
+    margin-top: auto;
+}
+</style>
+	<!-- banner -->
+<div class="banner" id="home">
+	<div class="layer">
+		<div class="container">
+			<div class="banner-text-w3pvt">
+				<!-- banner slider-->
+				<div class="csslider infinity" id="slider1">
+					<input type="radio" name="slides" checked="checked" id="slides_1" />
+					<input type="radio" name="slides" id="slides_2" />
+					<input type="radio" name="slides" id="slides_3" />
+					<ul class="banner_slide_bg">
+						<li>
+							<div class="w3ls_banner_txt">
+								<h2 class="b-w3ltxt text-capitalize mt-md-4">AI-based Test <span>Environment</span></h2>
+								<h4 class="b-w3ltxt text-capitalize">Revolutionize Your Software Testing</h4>
+								<p class="w3ls_pvt-title my-3">Advanced AI-powered testing platform for seamless software development.<br>Automate, optimize, and accelerate your testing process<br>with cutting-edge machine learning algorithms.</p>
+								<a href="{% url 'staticpages:services' %}" class="btn btn-banner my-sm-3 mr-2">Read More</a>
+								<a href="{% url 'staticpages:signup' %}" class="btn btn-banner1 my-sm-3">Get Started</a>
+							</div>
+						</li>
+						<li>
+							<div class="w3ls_banner_txt">
+								<h3 class="b-w3ltxt text-capitalize mt-md-4">Smart Trading <span>Companion</span></h3>
+								<h4 class="b-w3ltxt text-capitalize">AI-Powered Market Intelligence</h4>
+								<p class="w3ls_pvt-title my-3">Intelligent trading assistant leveraging AI to analyze market trends,<br>optimize strategies, and provide real-time insights.<br>Empower your trading decisions with data-driven recommendations.</p>
+								<a href="{% url 'staticpages:services' %}" class="btn btn-banner my-sm-3 mr-2">Read More</a>
+								<a href="{% url 'staticpages:signup' %}" class="btn btn-banner1 my-sm-3">Get Started</a>
+							</div>
+						</li>
+						<li>
+							<div class="w3ls_banner_txt">
+								<h3 class="b-w3ltxt text-capitalize mt-md-4">Self-Learning <span>AI System</span></h3>
+								<h4 class="b-w3ltxt text-capitalize">The Future of Artificial Intelligence</h4>
+								<p class="w3ls_pvt-title my-3">Revolutionary AI system capable of continuous learning and self-improvement.<br>Adapts to new challenges, enhances its capabilities over time,<br>and pushes the boundaries of artificial intelligence.</p>
+								<a href="{% url 'staticpages:services' %}" class="btn btn-banner my-sm-3 mr-2">Read More</a>
+								<a href="{% url 'staticpages:signup' %}" class="btn btn-banner1 my-sm-3">Get Started</a>
+							</div>
+						</li>
+					</ul>
+					<div class="navigation">
+						<div>
+							<label for="slides_1"></label>
+							<label for="slides_2"></label>
+							<label for="slides_3"></label>
+						</div>
+					</div>
+				</div>
+				<!-- //banner slider-->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //banner -->
+
+<!-- about -->
+<section class="banner-bottom pt-sm-5 pt-4 mt-sm-0 mt-2">
+    <div class="container">
+        <div class="row bottom_grids text-center mt-lg-5 mt-3">
+            <div class="col-md-4 grid1 mb-sm-5 mb-4">
+                <span class="fa fa-cogs"></span>
+                <h3 class="my-sm-3 mt-3 mb-2">AI-Powered Testing</h3>
+                <p>Our advanced AI-based test environment revolutionizes software development, automating and optimizing the testing process for unparalleled efficiency.</p>
+            </div>
+            <div class="col-md-4 grid2 mb-sm-5 mb-4">
+                <span class="fa fa-chart-line"></span>
+                <h3 class="my-sm-3 mt-3 mb-2">Smart Trading</h3>
+                <p>Experience the power of AI in trading with our intelligent companion, providing real-time insights and data-driven recommendations for optimal decision-making.</p>
+            </div>
+            <div class="col-md-4 grid3 mb-sm-5 mb-4">
+                <span class="fa fa-brain"></span>
+                <h3 class="my-sm-3 mt-3 mb-2">Self-Learning AI</h3>
+                <p>Our cutting-edge self-learning AI system continuously adapts and improves, pushing the boundaries of artificial intelligence to solve complex challenges.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //about -->
+
+<!-- advantages and details -->
+<section class="advantages pt-lg-5 pt-3">
+    <div class="container pb-md-5">
+        <div class="row advantages_grids">
+            <div class="col-lg-6">
+                <img src="{% static 'images/about.jpg' %}?{% now 'U' %}" alt="AI Technology" class="img-fluid">
+            </div>
+            <div class="col-lg-6 mt-lg-0 mt-4">
+                <h3 class="mt-sm-3">Revolutionizing Industries with Advanced AI Solutions</h3>
+                <p class="my-sm-4 mt-2 mb-4">At Greywolfx, we're at the forefront of AI innovation, developing cutting-edge solutions that transform businesses across sectors. Our AI-powered products enhance efficiency, provide invaluable insights, and drive growth. From automated testing environments to intelligent trading systems and self-learning AI, we're committed to pushing the boundaries of what's possible with artificial intelligence.</p>
+            </div>
+            <div class="row mt-sm-5 mx-0">
+                <div class="col-lg-3 col-6 grid4 mb-5">
+                    <span class="fa fa-rocket"></span>
+                    <h3 class="mt-sm-3 mt-2">Innovation</h3>
+                    <p>Pioneering AI technologies that redefine industry standards and drive progress.</p>
+                </div>
+                <div class="col-lg-3 col-6 grid5 mb-5">
+                    <span class="fa fa-shield-alt"></span>
+                    <h3 class="mt-sm-3 mt-2">Security</h3>
+                    <p>Robust security measures ensuring the protection of your data and AI systems.</p>
+                </div>
+                <div class="col-lg-3 col-6 grid6 mb-5">
+                    <span class="fa fa-code"></span>
+                    <h3 class="mt-sm-3 mt-2">Customization</h3>
+                    <p>Tailored AI solutions designed to meet your specific business needs and challenges.</p>
+                </div>
+                <div class="col-lg-3 col-6 grid7 mb-5">
+                    <span class="fa fa-users"></span>
+                    <h3 class="mt-sm-3 mt-2">Support</h3>
+                    <p>24/7 expert support to ensure smooth implementation and operation of our AI systems.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //advantages and details -->
+
+<!-- statistics -->
+<section class="statistics py-5">
+    <div class="container py-lg-5 py-3">
+        <h3 class="heading mb-md-5 mb-4">Our <strong>AI Impact</strong></h3>
+        <div class="row">
+            <div class="col-lg-4">
+                <p class="mb-4">At Greywolfx, we're revolutionizing industries through our cutting-edge AI solutions. Our AI-based test environment, smart trading companion, and self-learning AI system are driving innovation and efficiency across various sectors. We're committed to developing responsible AI that enhances human capabilities and solves complex challenges.</p>
+                <a href="#">Learn more about our impact</a>
+            </div>
+            <div class="col-lg-4 my-lg-0 my-4">
+                <img src="{% static 'images/stats1.jpg' %}?{% now 'U' %}" alt="AI Statistics" class="img-fluid">
+            </div>
+            <div class="col-lg-4">
+                <div class="progress-one">
+                    <h4 class="progress-tittle">AI Test Efficiency Improvement</h4>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress-one my-lg-4">
+                    <h4 class="progress-tittle">Trading Performance Enhancement</h4>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress-one">
+                    <h4 class="progress-tittle">AI Self-Learning Capability</h4>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress-one my-lg-4">
+                    <h4 class="progress-tittle">Client Satisfaction Rate</h4>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="progress-one">
+                    <h4 class="progress-tittle">24/7 AI-Powered Support</h4>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 99%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //statistics -->
+
+<!-- products -->
+<section class="products py-5">
+	<div class="container py-lg-5 py-3">
+		<h3 class="heading mb-md-5 mb-4 text-center">Our  <strong>Products</strong></h3>
+		<div class="row products_grids text-center" >
+			<div class="col-md-3 col-6 grid4 mb-md-0 mb-4">
+				<div class="prodct1">
+					<a href="#">
+						<span class="fa fa-cogs"></span>
+						<h3 class="mt-2">AI Test Environment</h3>
+						<p>Advanced AI-powered testing platform for seamless software development. Automate, optimize, and accelerate your testing process with cutting-edge machine learning algorithms.</p>
+						<div class="arrow-container">
+                            <span class="fas fa-long-arrow-alt-right"></span>
+                        </div>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-3 col-6 grid5 mb-md-0 mb-4">
+				<div class="prodct1">
+					<a href="#">
+						<span class="fa fa-chart-line"></span>
+						<h3 class="mt-2">Smart Trading Companion</h3>
+						<p>Intelligent trading assistant leveraging AI to analyze market trends, optimize strategies, and provide real-time insights. Empower your trading decisions with data-driven recommendations.</p>
+						<div class="arrow-container">
+                            <span class="fas fa-long-arrow-alt-right"></span>
+                        </div>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-3 col-6 grid6">
+				<div class="prodct1">
+					<a href="#">
+						<span class="fa fa-brain"></span>
+						<h3 class="mt-2">Self-Learning AI System</h3>
+						<p>Revolutionary AI system capable of continuous learning and self-improvement. Adapts to new challenges, enhances its capabilities over time, and pushes the boundaries of artificial intelligence.</p>
+						<div class="arrow-container">
+                            <span class="fas fa-long-arrow-alt-right"></span>
+                        </div>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-3 col-6 grid7">
+				<div class="prodct1">
+					<a href="#">
+						<span class="fa fa-cloud"></span>
+						<h3 class="mt-2">Cloud AI Solutions</h3>
+						<p>Scalable and flexible cloud-based AI services. Harness the power of distributed computing to tackle complex problems and drive innovation across your organization.</p>
+						<div class="arrow-container">
+                            <span class="fas fa-long-arrow-alt-right"></span>
+                        </div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+		
+<!-- //products -->
+
+<!-- stats section -->
+<section class="middlesection-w3pvt">
+    <div class="layer py-5">
+        <div class="container py-lg-5 py-3">
+            <h3 class="heading mb-md-5 mb-4">Our <strong>AI Impact</strong></h3>
+            <div class="row">
+                <div class="col-lg-8 left-build-wthree aboutright-w3pvtwthree text-lg-left text-center">
+                    <div class="row">
+                        <div class="col-sm-3 col-6 w3layouts_stats_left w3_counter_grid">
+                            <span class="fa fa-code-branch"></span>
+                            <p class="counter">500</p>
+                            <p class="para-text-w3ls" style="color: rgb(255, 255, 255); font-weight: bolder; backdrop-filter: blur(15px);">AI Models</p>
+                        </div>
+                        <div class="col-sm-3 col-6 w3layouts_stats_left w3_counter_grid2">    
+                            <span class="fa fa-users"></span>
+                            <p class="counter">1000</p>
+                            <p class="para-text-w3ls" style="color: rgb(255, 255, 255); font-weight: bolder; backdrop-filter: blur(15px);">Clients</p>
+                        </div>
+                        <div class="col-sm-3 col-6 w3layouts_stats_left w3_counter_grid1 mt-md-0 mt-4">
+                            <span class="fa fa-robot"></span>
+                            <p class="counter">5000</p>
+                            <p class="para-text-w3ls" style="color: rgb(255, 255, 255); font-weight: bolder; backdrop-filter: blur(15px);">AI Solutions</p>
+                        </div>
+                        <div class="col-sm-3 col-6 w3layouts_stats_left w3_counter_grid1 mt-md-0 mt-4">
+                            <span class="fa fa-chart-line"></span>
+                            <p class="counter">95</p>
+                            <p class="para-text-w3ls" style="color: rgb(255, 255, 255); font-weight: bolder; backdrop-filter: blur(5px);">% Efficiency Boost</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-lg-left text-stat text-center mt-lg-0 mt-4">
+                    <h4 class="">Transforming industries with cutting-edge AI solutions and driving innovation across sectors</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //stats section -->
+
+<!-- footer-top -->
+<section class="footer-top py-sm-5 py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <h3 class="my-sm-3 mt-3 mb-1"><span class="fa mr-2 fa-laptop-code"></span> AI Integration</h3>
+                <p class="mb-sm-4 mb-2">Seamlessly integrate our AI solutions into your existing systems and workflows.</p>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <h3 class="my-sm-3 mt-3 mb-1"><span class="fa mr-2 fa-shield-alt"></span> Data Security</h3>
+                <p class="mb-sm-4 mb-2">State-of-the-art encryption and security measures to protect your sensitive data.</p>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <h3 class="my-sm-3 mt-3 mb-1"><span class="fa mr-2 fa-globe"></span> Global Reach</h3>
+                <p class="mb-sm-4 mb-2">Serving clients worldwide with AI solutions tailored to local markets and regulations.</p>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <h3 class="my-sm-3 mt-3 mb-1"><span class="fa mr-2 fa-headset"></span> 24/7 AI Support</h3>
+                <p class="mb-sm-4 mb-2">Round-the-clock assistance from our AI experts to ensure smooth operation of your systems.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //footer-top -->
+
+{% include 'footer.html' %}
+
+<!-- move top -->
+<div class="move-top text-right">
+	<a href="#home" class="move-top"> 
+		<span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
+	</a>
+</div>
+<!-- move top -->
+
+{% endblock content %}
+	
+
+</body>
+</html>

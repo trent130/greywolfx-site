@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<title>{% block title %}Greywolfx | About{% endblock title %}</title>
+<body>
+
+{% block content %}
+	<style>
+		.clients .grid{
+			height: 100%;
+		}
+	</style>
+<!-- inner-banner -->
+<section class="inner-banner" id="home">
+	<div class="inner-layer">
+		<div class="container">
+		</div>
+	</div>
+</section>
+<!-- //inner-banner -->
+
+<!-- breadcrumb -->
+<div class="breadcrumb-w3pvt bg-light">
+	<div class="container">
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="{% url 'staticpages:index'%}">Home</a>
+			</li>
+			<li class="breadcrumb-item" aria-current="page">About Us</li>
+		</ol>
+	</nav>
+	</div>
+</div>
+<!-- //breadcrumb -->
+
+<!-- advantages and details -->
+<section class="advantages pt-5">
+	<div class="container pb-md-5">
+		<div class="row advantages_grids">
+			<div class="col-lg-6">
+				<img src="{% static 'images/about.jpg' %}" alt="About Greywolfx" class="img-fluid">
+			</div>
+			<div class="col-lg-6 mt-lg-0 mt-4">
+				<h3 class="mt-sm-3">Leading the AI Revolution</h3>
+				<p class="my-sm-4 mt-2 mb-4">At Greywolfx, we are dedicated to advancing artificial intelligence to solve real-world problems. Our innovative AI solutions are designed to enhance efficiency, provide deep insights, and drive growth across various industries. From AI-powered testing environments to intelligent trading systems and self-learning AI, we are committed to pushing the boundaries of technology.</p>
+			</div>
+			<div class="row mt-sm-5 mx-0">
+				<div class="col-lg-3 col-6 grid4 mb-5">
+					<span class="fa fa-cogs"></span>
+					<h3 class="mt-sm-3 mt-2">AI-Powered Testing</h3>
+					<p>Revolutionizing software development with advanced AI-based testing solutions.</p>
+				</div>
+				<div class="col-lg-3 col-6 grid5 mb-5">
+					<span class="fa fa-chart-line"></span>
+					<h3 class="mt-sm-3 mt-2">Smart Trading</h3>
+					<p>Empowering traders with intelligent AI-driven market analysis and insights.</p>
+				</div>
+				<div class="col-lg-3 col-6 grid6 mb-5">
+					<span class="fa fa-brain"></span>
+					<h3 class="mt-sm-3 mt-2">Self-Learning AI</h3>
+					<p>Continuous learning and self-improvement to tackle new challenges and opportunities.</p>
+				</div>
+				<div class="col-lg-3 col-6 grid7 mb-5">
+					<span class="fa fa-cloud"></span>
+					<h3 class="mt-sm-3 mt-2">Cloud AI Solutions</h3>
+					<p>Scalable and flexible AI services delivered through the cloud.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //advantages and details -->
+
+<!-- testimonials -->
+{% show_testimonials_with_profile_pictures %}
+<!-- //testimonials -->
+
+<!-- directors -->
+{% show_directors_with_their_pictures %}
+<!-- //directors -->
+
+<!-- subscribe -->
+<div class="subscribe py-5">
+	<div class="container py-sm-4">
+		<h3 class="heading mb-md-5 mb-4">Subscribe to our <strong>Newsletter</strong></h3>
+		<div class="row">
+			<div class="col-md-6 w3-w3pvt-subscribe">
+				<form method="post">
+					{% csrf_token %}
+					{{ subscribe_form.as_p }}
+					<button type="submit" class="btn btn-primary mt-2">Subscribe</button>
+				</form>
+				<p>We'll never share your email with anyone else.</p>
+			</div>
+			<div class="col-md-6 mt-md-0 mt-4">
+				<h4>Sign up for our Newsletter, and get the latest marketing and technology related news and updates.</h4>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //subscribe -->
+
+<!-- footer-top -->
+<section class="footer-top py-sm-5 py-4">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-sm-6">
+				<h3 class="my-sm-3 mt-3 mb-1"><span class="fa mr-2 fa-cogs"></span> AI Integration</h3>
+				<p class="mb-sm-4 mb-2">Integrate AI into your existing systems and processes for enhanced efficiency and insights.</p>
+			</div>
+			<div class="col-lg-3 col-sm-6">
+				<h3 class="my-sm-3 mt-3 mb-1"><span class="fa mr-2 fa-shield"></span> Data Security</h3>
+				<p class="mb-sm-4 mb-2">Our robust security measures ensure the confidentiality, integrity, and availability of your data.</p>
+			</div>
+			<div class="col-lg-3 col-sm-6">
+				<h3 class="my-sm-3 mt-3 mb-1"><span class="fa mr-2 fa-globe"></span> Global Reach</h3>
+				<p class="mb-sm-4 mb-2">Our global presence allows us to serve clients worldwide, providing localized solutions and support.</p>
+			</div>
+			<div class="col-lg-3 col-sm-6">
+				<h3 class="my-sm-3 mt-3 mb-1"><span class="fa mr-2 fa-clock"></span> 24/7 AI Support</h3>
+				<p class="mb-sm-4 mb-2">Our dedicated AI support team is available round-the-clock to address any issues and provide assistance.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //footer-top -->
+
+{% include 'footer.html' %}
+
+<!-- move top -->
+<div class="move-top text-right">
+	<a href="#home" class="move-top"> 
+		<span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
+	</a>
+</div>
+<!-- move top -->
+
+{% endblock content %}
+	
+</body>
+</html>

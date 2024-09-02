@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<title>{% block title %}Greywolfx | Privacy Policy{% endblock title %}</title>
+<body>
+
+	
+	{% block content %}
+		
+<!-- inner-banner -->
+<section class="inner-banner" id="home">
+	<div class="inner-layer">
+		<div class="container">
+		</div>
+	</div>
+</section>
+<!-- //inner-banner -->
+
+<!-- breadcrumb -->
+<div class="breadcrumb-w3pvt bg-light">
+	<div class="container">
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="{% url 'staticpages:index'%}">Home</a>
+			</li>
+			<li class="breadcrumb-item" aria-current="page">Privacy_policy</li>
+		</ol>
+	</nav>
+	</div>
+</div>
+<!-- //breadcrumb -->
+ <section class="contact py-5">
+	<div class="container py-sm-5">
+ 
+ <h2 class="heading mb-sm-5 mb-4"> our privacy <strong> policy </strong></h2>
+
+ <p></p>
+     </div>
+    </section>
+
+{% include 'footer.html' %}
+
+<!-- move top -->
+<div class="move-top text-right">
+	<a href="#home" class="move-top"> 
+		<span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
+	</a>
+</div>
+<!-- move top -->
+
+	{% endblock content %}
+		
+
+</body>
+</html>

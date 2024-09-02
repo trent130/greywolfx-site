@@ -1,0 +1,303 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_tags %}
+
+{% block title %}Greywolfx | {{ post.title }}{% endblock title %}
+
+{% block content %}
+<style>
+    .comment-section {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        backdrop-filter: backdrop-blur;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .comment-list {
+        margin-bottom: 20px;
+    }
+
+    .comment {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .comment-author {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .author-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .author-name {
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .comment-content {
+        margin-left: 50px;
+    }
+
+    .comment-actions {
+        margin-top: 10px;
+    }
+
+    .replies {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .reply {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .leave-comment {
+        margin-top: 20px;
+    }
+</style>
+
+<!-- inner-banner -->
+<section class="inner-banner" id="home">
+    <div class="inner-layer">
+        <div class="container">
+        </div>
+    </div>
+</section>
+<!-- //inner-banner -->
+
+<!-- breadcrumb -->
+<div class="breadcrumb-w3pvt bg-light">
+    <div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'staticpages:index'%}">Home</a>
+            </li>
+            <li class="breadcrumb-item" aria-current="page">Single</li>
+        </ol>
+    </nav>
+    </div>
+</div>
+<!-- //breadcrumb -->
+
+<section class="bottom-banner-w3layouts py-5">
+    <div class="container py-md-3">
+        <h1 class="heading mb-sm-5 mb-4">{{ post.title }}</h1>
+        <div class="row inner-sec-w3ls-w3pvtinfo">
+            <div class="col-lg-8 left-blog-info">
+                <article class="card">
+                    <a href="{% url 'staticpages:blog_detail' post.pk %}">
+                        <img src="{{ post.image.url }}" class="card-img-top img-fluid rounded" alt="{{ post.title }}">
+                    </a>
+                    <div class="card-body">
+                        <ul class="blog-icons my-sm-4 my-3">
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-calendar"></span> {{ post.time_uploaded }}
+                                </a>
+                            </li>
+                            <li class="mx-2">
+                                <a href="#">
+                                    <span class="fa fa-comment"></span> {{ post.comment }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-eye"></span> {{ post.likes }}
+                                </a>
+                            </li>
+                        </ul>
+                        <h5 class="card-title">
+                            <a href="{% url 'staticpages:blog_detail' post.pk %}">{{ post.title }}</a>
+                        </h5>
+                        <p class="card-text">{{ post.description }}</p>
+                    </div>
+                </article>
+                
+                <div class="comment-section mt-2">
+                    <h3>comments: {{ comments | length }}</h3>
+                    <div class="comment-list">
+                        {% for comment in comments %}
+                            <div class="comment">
+                                <div class="comment-author">
+                                    <img src="{{ comment.user.profile_picture.url }}" alt="" class="author-avatar">
+                                    <h5 class="author-name">{{ comment.user.username }}</h5>
+                                </div>
+                                <div class="comment-content">
+                                    <p>{{ comment.content }}</p>
+                                    <div class="comment-actions">
+                                        <a href="#" onclick="toggleReplyForm('reply-form-{{comment.id}}')">Reply</a>
+                                    </div>
+                                    {% if comment.replies.all %}
+                                        <div class="replies">
+                                            <h6>Replies:</h6>
+                                            <ul class="reply-list">
+                                                {% for reply in comment.replies.all %}
+                                                    <li class="reply">
+                                                        <div class="reply-author">
+                                                            <img src="{{ reply.user.profile_picture.url }}" alt="" class="author-avatar">
+                                                            <h6 class="author-name">{{ reply.user.username }}</h6>
+                                                        </div>
+                                                        <p>{{ reply.content }}</p>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <form id="reply-form-{{comment.id}}" class="reply-form" action="{% url 'staticpages:blog_detail' post.pk %}" method="post" style="display: none;">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <input type="hidden" name="parent" value="{{ comment.id }}">
+                                <button type="submit" class="btn btn-primary submit mt-2 mb-2">Submit Reply</button>
+                            </form>
+                        {% empty %}
+                            <p>No comments yet. Be the first to comment!</p>
+                        {% endfor %}
+                    </div>
+                    <div class="leave-comment">
+                        <h3>Leave a Comment</h3>
+                        <form action="{% url 'staticpages:blog_detail' post.pk %}" method="post" class="comment-form">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-primary submit mt-3">Submit Comment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <aside class="col-lg-4 right-blog-con">
+                <div class="right-blog-info">
+                    <div class="tech-btm">
+                        <img src="{% static 'images/s2.jpg' %}" class="card-img-top img-fluid rounded" alt="">
+                    </div>
+                    <div class="tech-btm">
+                        <h2>Subscribe to our newsletter</h2>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ subscribe_form.as_p }}
+                            <button type="submit" class="btn btn-primary mt-2">Subscribe</button>
+                        </form>
+                    </div>
+                    {% show_categories_with_post_count %}
+                    
+                    <div class="tech-btm">
+                        <h4>Top stories of the week</h4>
+                        {% if top_stories %}
+                            {% for story in top_stories %}
+                                <div class="blog-grids row mb-3">
+                                    <div class="col-md-5 blog-grid-left">
+                                        <a href="{% url 'staticpages:blog_detail' story.pk %}">
+                                            <img src="{{ story.image.url }}" class="card-img-top img-fluid rounded post-img" alt="{{ story.title }}">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-7 blog-grid-right">
+                                        <h5>
+                                            <a href="{% url 'staticpages:blog_detail' story.pk %}">{{ story.title }}</a>
+                                        </h5>
+                                        <div class="sub-meta">
+                                            <span>
+                                                <span class="fa fa-clock-o"></span> {{ story.time_uploaded }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>No recent posts available.</p>
+                        {% endif %}
+                    </div>
+                    <div class="tech-btm widget_social">
+                        <h4>Stay Connect</h4>
+                        <ul>
+                            <li>
+                                <a class="twitter" href="#">
+                                    <span class="fa fa-twitter"></span>
+                                    <span class="count">317K</span> Twitter Followers
+                                </a>
+                            </li>
+                            <li>
+                                <a class="facebook" href="#">
+                                    <span class="fa fa-facebook"></span>
+                                    <span class="count">218k</span> Facebook Followers
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dribble" href="#">
+                                    <span class="fa fa-dribbble"></span>
+                                    <span class="count">215k</span> Dribble Followers
+                                </a>
+                            </li>
+                            <li>
+                                <a class="pin" href="#">
+                                    <span class="fa fa-pinterest"></span>
+                                    <span class="count">190k</span> Pinterest Followers
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tech-btm">
+                        <h4>Recent Posts</h4>
+                        {% get_recent_posts as recent_posts %}
+                        {% if recent_posts %}
+                            {% for post in recent_posts %}
+                                <div class="blog-grids row mb-3">
+                                    <div class="col-md-5 blog-grid-left">
+                                        <a href="{% url 'staticpages:blog_detail' post.pk %}">
+                                            <img src="{{ post.image.url }}" class="card-img-top img-fluid rounded post-img" alt="{{ post.title }}">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-7 blog-grid-right">
+                                        <h5>
+                                            <a href="{% url 'staticpages:blog_detail' post.pk %}">{{ post.title }}</a>
+                                        </h5>
+                                        <div class="sub-meta">
+                                            <span>
+                                                <span class="fa fa-clock-o"></span> {{ post.time_uploaded }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>No recent posts available.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+<!-- move top button -->
+<div class="move-top text-right">
+    <a href="#" class="move-top"> 
+        <span class="fa fa-angle-up mb-3" aria-hidden="true"></span>
+    </a>
+</div>
+
+<script>
+function toggleReplyForm(formId) {
+  var form = document.getElementById(formId);
+  if (form.style.display === "none") {
+    form.style.display = "block";
+  } else {
+    form.style.display = "none";
+  }
+}
+</script>
+
+{% endblock content %}

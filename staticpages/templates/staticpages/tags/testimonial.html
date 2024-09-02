@@ -1,0 +1,24 @@
+<section class="clients">
+	<div class="layer py-lg-5 py-lg-4">
+		<div class="container py-5">
+			<h2 class="heading mb-md-5 mb-4">Our <strong>Customers' Feedback</strong></h2>
+                <div class="row">
+                    {% for testimonial in testimonials %}
+                    <div class="col-lg-4 col-md-6 pl-sm-0 mb-4">
+                        <div class="col- client-grid grid flex-fill">
+                            <div class="c-left">
+                                <img src="{{ testimonial.picture.url }}" alt="Customer Feedback" class="img-fluid" />
+                                <div class="info">
+                                    <h6>{{ testimonial.name }}</h6>
+                                    <p>- {{ testimonial.post }}</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                                <p class="mt-2">{{ testimonial.feedback }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+		</div>
+	</div>
+</section>

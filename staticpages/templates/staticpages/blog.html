@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<title>
+{% block title %}
+	Greywolfx | Blog
+{% endblock title %}
+	</title>
+<body>
+
+
+{% block content %}
+	
+<!-- inner-banner -->
+<section class="inner-banner" id="home">
+	<div class="inner-layer">
+		<div class="container">
+		</div>
+	</div>
+</section>
+<!-- //inner-banner -->
+
+<!-- breadcrumb -->
+<div class="breadcrumb-w3pvt bg-light">
+	<div class="container">
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item">
+				<a href="{% url 'staticpages:index'%}">Home</a>
+			</li>
+			<li class="breadcrumb-item" aria-current="page">Blog</li>
+		</ol>
+	</nav>
+	</div>
+</div>
+<!-- //breadcrumb -->
+
+<!-- blog -->
+<section class="blog pt-5">
+	<div class="container py-md-3">
+		<h2 class=" mb-sm-5 mb-4 text-center">Our latest<strong> News blog </strong></h2>
+		<div class="row">
+			{% for post in page_obj %}
+			<div class="col-lg-6 news-left mb-5">
+				<div class="row">
+					
+						<div class="col-md-3 w3-w3pvt-news-date text-right mb-md-0 mb-2">
+							<div class="w3pvt-news-icon">
+								<span class="fa fa-calendar" aria-hidden="true"></span>
+								<p>{{ post.time_uploaded }}</p>
+							</div>
+							<div class="w3pvtits-line"> </div>
+							<div class="w3pvt-news-icon mt-md-4">
+								<a href="#"><span class="fa fa-comment"></span></a>
+								<p>{{ post.comment }}</p>
+							</div>
+							<div class="w3pvtits-line"> </div>
+							<div class="w3pvt-news-icon mt-md-4">
+								<a href="#"><span class="fa fa-thumbs-up" aria-hidden="true"></span></a>
+								<p>{{ post.likes }}</p>
+							</div>
+						</div>
+						<div class="col-md-9 w3-w3pvt-news-img">
+							<a href="{% url 'staticpages:blog_detail' post.pk %}"><img src="{{ post.image.url }}" alt="" class="blog-image"></a>
+							<h4 class="my-sm-3 mt-3 mb-1"><a href="#">{{ post.title }}</a></h4>
+							<p>{{ post.description | truncatewords:30 | truncatechars:150  }} <a href="{% url 'staticpages:blog_detail' post.pk %}">read more</a></p>
+						</div>
+						
+					
+				</div>
+			</div>
+			{% empty %}
+				{% include 'empty.html' %}
+			{% endfor %}
+		</div>
+	</div>
+</section>
+<!-- //blog -->
+
+{% include 'footer.html' %}
+<!-- move top -->
+<div class="move-top text-right">
+	<a href="#home" class="move-top"> 
+		<span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
+	</a>
+</div>
+<!-- move top -->
+
+{% endblock content %}
+	
+</body>
+</html>

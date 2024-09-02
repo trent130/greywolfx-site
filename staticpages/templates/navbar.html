@@ -1,0 +1,35 @@
+<!-- header -->
+<header>
+	<div class="container">
+		<!-- nav -->
+		<nav class="py-3 d-lg-flex">
+			<div id="logo">
+				<h1> <a href="{% url 'staticpages:index' %}"><span></span>Greywolfx</a></h1>
+			</div>
+			<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+			<input type="checkbox" id="drop" />
+			<ul class="menu ml-auto mt-1">
+				<li class=""><a href="{% url 'staticpages:index' %}">Home</a></li>
+				<li class=""><a href="{% url 'staticpages:about' %}">About Us</a></li>
+				<li class=""><a href="{% url 'staticpages:services' %}">Services</a></li>
+				<li class=""><a href="{% url 'staticpages:blog_list' %}">Blog</a></li>
+				<li class=""><a href="{% url 'staticpages:contact' %}">Contact</a></li>
+				<li class="">
+					{% if user.is_authenticated %}
+						<div class="d-flex justify-content-center align-items-center">
+							<span class="text-white " style="margin-right: 7px;">welcome,<strong><a href="{% url 'staticpages:profile' %}">{{ request.user.username }}</a></strong></span>
+							<form action="{% url 'staticpages:logout' %}" class="" method="post">
+								{% csrf_token %}
+								<button class="btn btn-danger">logout</button>
+							</form>
+						</div>
+					{% else %}
+						<a href="{% url 'staticpages:signup' %}">Get started</a>
+					{% endif %}
+				</li>
+			</ul>
+		</nav>
+		<!-- //nav -->
+	</div>
+</header>
+<!-- //header -->

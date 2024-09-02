@@ -1,0 +1,40 @@
+<section class="team pt-5">
+	<div class="container py-md-5 py-3">
+		<h3 class="heading mb-md-5 mb-4">Our <strong>Team Professionals</strong></h3>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="blog-info">
+					<h4 class="heading mt-lg-2">Meet Our Experts</h4>
+					<p class="mt-sm-3 mt-2">Our team of professionals is dedicated to advancing AI technology and delivering innovative solutions that drive success for our clients.</p>
+				</div>
+			</div>
+			<div class="col-lg-8 text-center mt-lg-0 mt-4">
+				<div class="row">
+                    
+                    {% if directors %}
+                        
+                        {% for director in directors %}
+                            <div class="col-md-4 col-6 item" >
+                                <div class="clients-color">
+                                <div class="w3-w3pvt-team-img">
+                                    <img src="{{ director.director_picture.url }}" class="img-fluid img-thumbnail"
+                                    alt="{{ director.director_name }}">
+                                </div>
+                                <div class="team-txt-info pt-3">
+                                    <h4>{{ director.director_name }}</h4>
+                                    <p class="mb-3">{{ director.director_post }}</p>
+                                </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                            
+                    {% else %}
+                        no directors available right now 
+                    {% endif %}
+                        
+				   
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
