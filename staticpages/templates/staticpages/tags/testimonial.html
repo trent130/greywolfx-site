@@ -5,8 +5,8 @@
                 <div class="row">
                     {% for testimonial in testimonials %}
                     <div class="col-lg-4 col-md-6 pl-sm-0 mb-4">
-                        <div class="col- client-grid grid flex-fill">
-                            <div class="c-left">
+                        <div class="col- client-grid grid flex-fill" style="border-radius: 7px; overflow: hidden;">
+                            <div class="c-left" >
                                 <img src="{{ testimonial.picture.url }}" alt="Customer Feedback" class="img-fluid" />
                                 <div class="info">
                                     <h6>{{ testimonial.name }}</h6>

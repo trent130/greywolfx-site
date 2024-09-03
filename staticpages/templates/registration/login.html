@@ -56,15 +56,17 @@
                             {% csrf_token %}
                             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
 
-                            <div data-mdb-input-init class="form-outline mb-4">
-                                <input type="email" id="form2Example18" class="form-control form-control-lg" />
+                            {{form.as_p}}
+
+                            <!-- <div data-mdb-input-init class="form-outline mb-4">
                                 <label class="form-label" for="form2Example18">Email address</label>
+                                <input type="email" id="form2Example18" class="form-control form-control-lg" />
                             </div>
 
                             <div data-mdb-input-init class="form-outline">
-                                <input type="password" id="form2Example28" class="form-control form-control-lg" />
                                 <label class="form-label" for="form2Example28">Password</label>
-                            </div>
+                                <input type="password" id="form2Example28" class="form-control form-control-lg" />
+                            </div> -->
 
                             <div class="pt-1 mb-4">
                                 <button  class="btn btn-info btn-lg btn-block"
@@ -79,9 +81,8 @@
                     </div>
 
                 </div>
-                <div class="col-sm-6 px-0 d-none d-sm-block side-image">
-                    <img src="{% static 'images/Cardinal_Tech.png' %}" alt="Login image" class="w-100 vh-100"
-                        style="object-fit: cover; object-position: left;">
+                <div class="col-sm-6 px-0 d-none d-sm-block side-image vh-100" style="object-fit:  cover; width: 23rem; object-position: left;">
+                    <img src="{% static 'images/Cardinal_Tech.png' %}" alt="Login image" class="">
                 </div>
             </div>
         </section>

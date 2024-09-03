@@ -29,7 +29,7 @@ def services(request):
     return render(request, "staticpages/services.html")
 
 def term_conditions(request):
-    return render(request, "staticpages/empty.html")
+    return render(request, "staticpages/term_conditions.html")
 
 def signup(request):
     if request.method == "POST":
