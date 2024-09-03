@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BlogPost, Comment, Category, Profile, Subscribe, Testimonial, Director
+from .models import BlogPost, Comment, Category, Profile, Subscribe, Testimonial, Director, Employee
 
 # Register your models here.
 class BlogPostAdmin(admin.ModelAdmin):
@@ -40,4 +40,12 @@ class DirectorAdmin(admin.ModelAdmin):
     ordering = ['-date_added']
 
 admin.site.register(Director, DirectorAdmin)
+
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display = ('employee_name', 'employee_post', 'employee_email', 'date_added')
+    list_filter = ['employee_post', 'employee_email']
+    search_fields = ['employee_post', 'employee_name', 'employee_email']
+    ordering = ['-date_added']
+
+admin.site.register(Employee, EmployeeAdmin)
     

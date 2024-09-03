@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.db import IntegrityError
 from django.contrib.auth.models import User
-from staticpages.models import Category, BlogPost, Profile, Comment, Testimonial, Subscribe, Director
+from staticpages.models import Category, BlogPost, Profile, Employee, Comment, Testimonial, Subscribe, Director
 
 class CategoryModelTest(TestCase):
     def setUp(self):
@@ -129,3 +129,25 @@ class DirectorModelTest(TestCase):
         
         with self.assertRaises(IntegrityError):
             Director.objects.create(director_name="test name", director_email="testname@example.org")
+
+class EmployeeModelTest(TestCase):
+    def setUp(self):
+        self.user = User.objects.create(username="username", password="password")
+        self.employee = Employee.objects.create(
+            employee_name = "test name",
+            employee_email = "testname@example.org",
+            employee_picture = "test.png",
+            employee_post = "test post",
+            employee_age = 25,
+            employee_gender = "male",
+            employee_phone = "1234567890",
+            employee_address = "test address",
+            employee_dob = "1999-01-01"
+        )
+    def test_employee_creation(self):
+        self.assertEqual(self.employee.employee_name, "test name")
+        self.assertEqual(self.employee.employee_email, "testname@example.org")
+        self.assertEqual(self.employee.employee_post, "test post")
+        
+    def test_employee_str(self):
+        self.assertEqual(str(self.employee), "test name")

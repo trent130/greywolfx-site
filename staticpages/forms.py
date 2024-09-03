@@ -36,11 +36,23 @@ class signupForm(forms.ModelForm):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         password = password1 and password2
-        special_characters = ("@" "#", "$","%","&","*","(",")","!")
+        special_characters = ("@" "#", "$","%","&","*","(",")", "!")
         
-        if password and special not in password:
-            return forms.ValidationError("please add at least one special characters to your password")
-        return password
+        if password and any(char in special_characters for char in password):
+            return forms.ValidationError("Password should contain at least one special character")
+        return password1
+    
+    def clean_email(self):
+        email = self.cleaned_data.get("email")
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("Email already exists")
+
+        return email
+    
+    def clean_username(self):
+        if User.objects.filter(username=username).exists():
+            raise forms.ValidationError("Username already exists")
+        return username
 
 class commentsForm(forms.ModelForm):
     """Form definition for Comment."""
@@ -105,6 +117,25 @@ class ProfileForm(forms.ModelForm):
         if username and first_name and last_name and username == first_name or username == last_name:
             return forms.ValidationError("username can not be the same as first name or last name")
         return username
+    
+    def clean_email(self):
+        email = self.cleaned_data.get("email")
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("Email already exists")
+        return email 
+    
+    def clean_first_name(self):
+        first_name = self.cleaned_data.get("first_name")
+        if first_name and first_name.isalpha() == False:
+            raise forms.ValidationError("First name should contain only alphabets")
+        return first_name
+    
+    def clean_last_name(self):
+        last_name = self.cleaned_data.get("last_name")
+        if last_name and last_name.isalpha() == False:
+            raise forms.ValidationError("Last name should contain only alphabets")
+        return last_name
+    
 
 class SubscribeForm(forms.ModelForm):
     class Meta:
@@ -113,3 +144,10 @@ class SubscribeForm(forms.ModelForm):
         widgets = {
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter your email'})
         }
+        
+    def clean_email(self):
+        if email and User.objects.filter(email=email).exists():
+            raise forms.ValidationError("Email already exists")
+            if email and Subscribe.objects.filter(email=email).exists():
+                raise forms.ValidationError("Email already subscribed")
+        return email
