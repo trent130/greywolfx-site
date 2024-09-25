@@ -22,17 +22,28 @@ To set up the project locally, follow these steps:
    cd greywolfx-site
     ```
 3. Install dependencies
-    ```pip install -r requirements.txt```
-4. Apply migrations
-    ```python manage.py migrate```
-5. Create a superuser (optional)
-    ```python manage.py createsuperuser```
-6. Run the development server
-    ```python manage.py runserver```
+    ```
+   pip install -r requirements.txt
+    ```
+5. Apply migrations
+    ```
+   python manage.py migrate
+    ```
+7. Create a superuser (optional)
+    ```
+   python manage.py createsuperuser
+    ```
+9. Run the development server
+    ```
+   python manage.py runserver
+    ```
 
 
 ## Usage
-After setting up the project, you can access it at ```http://127.0.0.1:8000/admin```.
+After setting up the project, you can access it at 
+```
+http://127.0.0.1:8000/admin
+```.
 Use the following credentials to log in as an admin (if you created a superuser):
 
 - Username: admin
