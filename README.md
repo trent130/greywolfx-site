@@ -17,8 +17,8 @@ Greywolfx is a dynamic web application designed to facilitate a marketplace for 
 To set up the project locally, follow these steps:
 
 1. Clone the repository
-    git clone https://github.com/Trent130/greywolfx-site.git
-    cd greywolfx-site
+    - git clone https://github.com/Trent130/greywolfx-site.git
+    - cd greywolfx-site
 2. Install dependencies
     pip install -r requirements.txt
 3. Apply migrations
