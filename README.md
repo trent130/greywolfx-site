@@ -30,7 +30,7 @@ To set up the project locally, follow these steps:
 
 
 ## Usage
-After setting up the project, you can access it at `http://127.0.0.1:8000/`. Use the following credentials to log in as an admin (if you created a superuser):
+After setting up the project, you can access it at `http://127.0.0.1:8000/admin`. Use the following credentials to log in as an admin (if you created a superuser):
 
 - Username: admin
 - Password: your_password
